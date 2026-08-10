@@ -1,3 +1,4 @@
+import styles from './TaskForm.module.css'
 import { useState } from 'react'
 
 function TaskForm({ onAdd }) {
@@ -18,18 +19,25 @@ function TaskForm({ onAdd }) {
   }
 
   return (
-    <div>
+    <div className={styles.form}>
       <input
         type="text"
+        className={styles.input}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Nueva tarea"
       />
-      <select value={day} onChange={(e) => setDay(e.target.value)}>
+      <select
+        className={styles.select}
+        value={day}
+        onChange={(e) => setDay(e.target.value)}
+      >
         <option value="hoy">Hoy</option>
         <option value="mañana">Mañana</option>
       </select>
-      <button onClick={handleSubmit}>Agregar</button>
+      <button className={styles.button} onClick={handleSubmit}>
+        Agregar
+      </button>
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import styles from './ShareButton.module.css'
+
 function ShareButton({ tasks }) {
   function shareTasks() {
     const completed = tasks.filter((t) => t.day === 'hoy' && t.completed)
@@ -22,7 +24,11 @@ function ShareButton({ tasks }) {
     }
   }
 
-  return <button onClick={shareTasks}>Compartir tareas completadas</button>
+  return (
+    <button className={styles.button} onClick={shareTasks}>
+      Compartir tareas completadas
+    </button>
+  )
 }
 
 export default ShareButton
