@@ -2,20 +2,21 @@ import { useState } from 'react'
 
 function App() {
   const [tasks, setTasks] = useState([])
-  const [text, setText] = useState('')
+  const [description, setdescription] = useState('')
+  const [day, setDay] = useState('hoy')
 
   function addTask() {
-    if (text.trim() === "") return
+    if (description.trim() === "") return
 
     const newTask = {
       id: Date.now(),
-      text: text,
-      day: "hoy",
+      description: description,
+      day: day,
       completed: false,
     }
 
     setTasks([...tasks, newTask])
-    setText('')
+    setdescription('')
   }
 
   function toggleCompleted(id) {
@@ -30,20 +31,28 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  const todayTasks = tasks.filter((task) => task.day === 'hoy')
+  const tomorrowTasks = tasks.filter((task) => task.day === 'mañana')
+
   return (
     <div>
       <h1>Wins</h1>
 
       <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        type="description"
+        value={description}
+        onChange={(e) => setdescription(e.target.value)}
         placeholder="Nueva tarea"
       />
+      <select value={day} onChange={(e) => setDay(e.target.value)}>
+        <option value="hoy">Hoy</option>
+        <option value="mañana">Mañana</option>
+      </select>
       <button onClick={addTask}>Agregar</button>
 
+      <h2>Hoy</h2>
       <ul>
-        {tasks.map((task) => (
+        {todayTasks.map((task) => (
           <li key={task.id}>
             <input
               type="checkbox"
@@ -52,11 +61,21 @@ function App() {
             />
             <span
               style={{
-                textDecoration: task.completed ? "line-through" : "none",
+                descriptionDecoration: task.completed ? "line-through" : "none",
               }}
             >
-              {task.text}
+              {task.description}
             </span>
+            <button onClick={() => removeTask(task.id)}>Eliminar</button>
+          </li>
+        ))}
+      </ul>
+
+      <h2>Mañana</h2>
+      <ul>
+        {tomorrowTasks.map((task) => (
+          <li key={task.id}>
+            <span>{task.description}</span>
             <button onClick={() => removeTask(task.id)}>Eliminar</button>
           </li>
         ))}
