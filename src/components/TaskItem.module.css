@@ -1,46 +1,108 @@
 .item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  background: var(--color-bg);
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  transition: box-shadow 0.15s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  position: relative;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 4px 4px 0;
+  background: var(--gradient-primary);
+  transition: transform 0.2s ease;
 }
 
 .item:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-border-strong);
+  transform: translateX(2px);
   box-shadow: var(--shadow-sm);
 }
 
+.item:hover::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
 .checkbox {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--color-success);
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 7px;
   cursor: pointer;
   flex-shrink: 0;
+  position: relative;
+  background: var(--color-surface);
+  transition: all 0.2s ease;
+}
+
+.checkbox:hover {
+  border-color: var(--color-primary);
+}
+
+.checkbox:checked {
+  background: var(--color-success);
+  border-color: transparent;
+}
+
+.checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .description {
   flex: 1;
   font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  transition: color 0.25s ease, opacity 0.25s ease;
 }
 
 .completed {
   text-decoration: line-through;
+  text-decoration-color: rgba(163, 230, 53, 0.6);
+  text-decoration-thickness: 2px;
   color: var(--color-text-muted);
+  opacity: 0.65;
 }
 
 .removeButton {
   background: none;
-  border: none;
+  border: 1px solid transparent;
   color: var(--color-text-muted);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
   opacity: 0;
-  transition: opacity 0.15s ease, background 0.15s ease;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
 }
 
 .item:hover .removeButton {
@@ -48,5 +110,7 @@
 }
 
 .removeButton:hover {
-  background: var(--color-border);
+  background: rgba(251, 113, 133, 0.12);
+  border-color: rgba(251, 113, 133, 0.3);
+  color: #fb7185;
 }

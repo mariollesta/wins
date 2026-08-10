@@ -1,23 +1,41 @@
 :root {
-  --color-bg: #f5f5f4;
-  --color-surface: #ffffff;
-  --color-primary: #4f46e5;
-  --color-primary-hover: #4338ca;
-  --color-text: #18181b;
-  --color-text-muted: #71717a;
-  --color-border: #e4e4e7;
-  --color-success: #10b981;
+  --color-bg: #0a0a14;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface-strong: rgba(255, 255, 255, 0.08);
+  --color-surface-hover: rgba(255, 255, 255, 0.07);
+  --color-primary: #a3e635;
+  --color-primary-hover: #84cc16;
+  --color-accent: #22c55e;
+  --color-text: #f4f4f7;
+  --color-text-muted: #8a8aa3;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-success: #22c55e;
 
-  --radius-sm: 10px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gradient-primary: linear-gradient(135deg, #d9f99d 0%, #a3e635 50%, #65a30d 100%);
+  --gradient-primary-soft: linear-gradient(135deg, rgba(190, 242, 100, 0.85) 0%, rgba(132, 204, 22, 0.85) 100%);
+  --gradient-text: linear-gradient(135deg, #d9f99d 0%, #a3e635 50%, #65a30d 100%);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 60px rgba(163, 230, 53, 0.22);
+  --shadow-glow-strong: 0 8px 32px rgba(163, 230, 53, 0.35);
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html, body, #root {
+  min-height: 100%;
 }
 
 body {
@@ -26,4 +44,44 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(163, 230, 53, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 10%, rgba(74, 222, 128, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 75% 95%, rgba(132, 204, 22, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 90%, rgba(190, 242, 100, 0.10) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: rgba(163, 230, 53, 0.4);
+  color: #0a0a14;
 }

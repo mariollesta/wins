@@ -1,47 +1,106 @@
 .form {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  gap: 0.6rem;
+  margin-bottom: 2.25rem;
+  padding: 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form:focus-within {
+  border-color: rgba(163, 230, 53, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 0 0 4px rgba(163, 230, 53, 0.14);
 }
 
 .input {
   flex: 1;
-  padding: 0.65rem 0.9rem;
-  border: 1px solid var(--color-border);
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  border: none;
   border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
   font-size: 0.95rem;
   font-family: inherit;
   outline: none;
-  transition: border-color 0.15s ease;
+  transition: background 0.15s ease;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input:hover {
+  background: var(--color-surface-hover);
 }
 
 .input:focus {
-  border-color: var(--color-primary);
+  background: var(--color-surface-strong);
 }
 
 .select {
-  padding: 0.65rem 0.75rem;
+  padding: 0.7rem 0.85rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-family: inherit;
-  background: var(--color-surface);
+  font-weight: 500;
+  background: var(--color-surface-strong);
   color: var(--color-text);
   outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
+    linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 9px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 1.9rem;
+}
+
+.select:hover {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface-hover);
+}
+
+.select:focus {
+  border-color: var(--color-primary);
+}
+
+.select option {
+  background: #15151f;
+  color: var(--color-text);
 }
 
 .button {
-  padding: 0.65rem 1.1rem;
+  padding: 0.7rem 1.25rem;
   border: none;
   border-radius: var(--radius-sm);
   background: var(--color-primary);
   color: white;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.01em;
   cursor: pointer;
   transition: background 0.15s ease;
+  white-space: nowrap;
 }
 
 .button:hover {
+  background: var(--color-primary-hover);
+}
+
+.button:active {
   background: var(--color-primary-hover);
 }

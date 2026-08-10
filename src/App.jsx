@@ -10,8 +10,6 @@ function App() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h1 className={styles.title}>Wins</h1>
-
         <TaskForm onAdd={addTask} />
 
         <TaskList
