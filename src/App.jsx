@@ -18,6 +18,18 @@ function App() {
     setText('')
   }
 
+  function toggleCompleted(id) {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    )
+  }
+
+  function removeTask(id) {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
   return (
     <div>
       <h1>Wins</h1>
@@ -30,7 +42,25 @@ function App() {
       />
       <button onClick={addTask}>Agregar</button>
 
-      <pre>{JSON.stringify(tasks, null, 2)}</pre>
+      <ul>
+        {tasks.map((task) => (
+          <li key={task.id}>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => toggleCompleted(task.id)}
+            />
+            <span
+              style={{
+                textDecoration: task.completed ? "line-through" : "none",
+              }}
+            >
+              {task.text}
+            </span>
+            <button onClick={() => removeTask(task.id)}>Eliminar</button>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
