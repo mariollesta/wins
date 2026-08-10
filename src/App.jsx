@@ -1,12 +1,36 @@
 import { useState } from 'react'
 
 function App() {
-  const [wins, setWins] = useState(0)
+  const [tasks, setTasks] = useState([])
+  const [text, setText] = useState('')
+
+  function addTask() {
+    if (text.trim() === "") return
+
+    const newTask = {
+      id: Date.now(),
+      text: text,
+      day: "hoy",
+      completed: false,
+    }
+
+    setTasks([...tasks, newTask])
+    setText('')
+  }
 
   return (
     <div>
       <h1>Wins</h1>
-      <pre>{JSON.stringify(wins, null, 2)}</pre>
+
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Nueva tarea"
+      />
+      <button onClick={addTask}>Agregar</button>
+
+      <pre>{JSON.stringify(tasks, null, 2)}</pre>
     </div>
   )
 }
