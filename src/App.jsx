@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import TaskForm from './TaskForm'
+import TaskList from './TaskList'
+import ShareButton from './ShareButton'
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -19,25 +22,12 @@ function App() {
     return initialTasks
   })
 
-  const [description, setdescription] = useState('')
-  const [day, setDay] = useState('hoy')
-
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
   }, [tasks])
 
-  function addTask() {
-    if (description.trim() === "") return
-
-    const newTask = {
-      id: Date.now(),
-      description: description,
-      day: day,
-      completed: false,
-    }
-
+  function addTask(newTask) {
     setTasks([...tasks, newTask])
-    setdescription('')
   }
 
   function toggleCompleted(id) {
@@ -52,29 +42,6 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
-  function shareTasks() {
-    const completed = tasks.filter((t) => t.day === 'hoy' && t.completed)
-
-    if (completed.length === 0) {
-      alert('Aún no has completado ninguna tarea hoy')
-      return
-    }
-
-    const texto =
-      'Mis tareas completadas hoy:\n\n' +
-      completed.map((t) => `- ${t.description}`).join('\n')
-
-    if (navigator.share) {
-      navigator.share({
-        title: 'Mis tareas de hoy',
-        text: texto,
-      })
-    } else {
-      navigator.clipboard.writeText(texto)
-      alert('Copiado al portapapeles (tu navegador no soporta compartir directo)')
-    }
-  }
-
   const todayTasks = tasks.filter((task) => task.day === 'hoy')
   const tomorrowTasks = tasks.filter((task) => task.day === 'mañana')
 
@@ -82,50 +49,23 @@ function App() {
     <div>
       <h1>Wins</h1>
 
-      <input
-        type="description"
-        value={description}
-        onChange={(e) => setdescription(e.target.value)}
-        placeholder="Nueva tarea"
+      <TaskForm onAdd={addTask} />
+
+      <TaskList
+        title="Hoy"
+        tasks={todayTasks}
+        onToggle={toggleCompleted}
+        onRemove={removeTask}
       />
-      <select value={day} onChange={(e) => setDay(e.target.value)}>
-        <option value="hoy">Hoy</option>
-        <option value="mañana">Mañana</option>
-      </select>
-      <button onClick={addTask}>Agregar</button>
 
-      <h2>Hoy</h2>
-      <ul>
-        {todayTasks.map((task) => (
-          <li key={task.id}>
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => toggleCompleted(task.id)}
-            />
-            <span
-              style={{
-                descriptionDecoration: task.completed ? "line-through" : "none",
-              }}
-            >
-              {task.description}
-            </span>
-            <button onClick={() => removeTask(task.id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
+      <TaskList
+        title="Mañana"
+        tasks={tomorrowTasks}
+        onToggle={toggleCompleted}
+        onRemove={removeTask}
+      />
 
-      <h2>Mañana</h2>
-      <ul>
-        {tomorrowTasks.map((task) => (
-          <li key={task.id}>
-            <span>{task.description}</span>
-            <button onClick={() => removeTask(task.id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-
-      <button onClick={shareTasks}>Compartir tareas completadas</button>
+      <ShareButton tasks={tasks} />
     </div>
   )
 }
