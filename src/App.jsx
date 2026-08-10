@@ -1,9 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState(() => {
+    const saved = localStorage.getItem('tasks')
+    return saved ? JSON.parse(saved) : []
+  })
   const [description, setdescription] = useState('')
   const [day, setDay] = useState('hoy')
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
 
   function addTask() {
     if (description.trim() === "") return
