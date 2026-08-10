@@ -3,8 +3,22 @@ import { useState, useEffect } from 'react'
 function App() {
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem('tasks')
-    return saved ? JSON.parse(saved) : []
+    let initialTasks = saved ? JSON.parse(saved) : []
+
+    const today = new Date().toDateString()
+    const lastDay = localStorage.getItem('lastDay')
+
+    if (lastDay !== today) {
+      initialTasks = initialTasks.map((task) =>
+        task.day === 'mañana' ? { ...task, day: 'hoy' } : task
+      )
+      localStorage.setItem('lastDay', today)
+      localStorage.setItem('tasks', JSON.stringify(initialTasks))
+    }
+
+    return initialTasks
   })
+  
   const [description, setdescription] = useState('')
   const [day, setDay] = useState('hoy')
 
