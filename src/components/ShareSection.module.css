@@ -1,0 +1,29 @@
+.section {
+  margin-top: 1.5rem;
+}
+
+.heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shareGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hiddenWrapper {
+  position: fixed;
+  top: 0;
+  left: -9999px;
+}

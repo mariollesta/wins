@@ -2,7 +2,7 @@ import styles from './App.module.css'
 import Header from './components/Header'
 import TaskForm from './components/TaskForm'
 import TaskList from './components/TaskList'
-import ShareButton from './components/ShareButton'
+import ShareSection from './components/ShareSection'
 import useTasks from './hooks/useTasks'
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
             onRemove={removeTask}
           />
 
-          <ShareButton tasks={tasks} />
+          <ShareSection tasks={tasks} />
         </div>
       </div>
     </>
