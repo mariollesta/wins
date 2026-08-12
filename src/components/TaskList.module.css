@@ -15,16 +15,6 @@
   padding: 0 0.25rem;
 }
 
-.heading::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  box-shadow: 0 0 10px rgba(163, 230, 53, 0.7);
-}
-
 .list {
   list-style: none;
   margin: 0;
