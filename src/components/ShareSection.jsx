@@ -15,28 +15,26 @@ function ShareSection({ tasks }) {
 
   return (
     <div className={styles.section}>
-      <h2 className={styles.heading}>Compartir</h2>
-
+      
       <div className={styles.row}>
         <ShareButton
+          variant="capsule"
           icon={<Eye width={18} height={18} />}
           onClick={() => setShowPreview(true)}
-        >
-          Vista previa
-        </ShareButton>
+        />
 
-        <div className={styles.shareGroup}>
-          <ShareButton
-            icon={<Share width={20} height={20} />}
-            onClick={shareAsText}
-            ariaLabel="Compartir tareas completadas"
-          />
-          <ShareButton
-            icon={<Instagram width={20} height={20} />}
-            onClick={shareAsImage}
-            ariaLabel="Compartir en Instagram"
-          />
-        </div>
+        <ShareButton
+          variant="capsule"
+          icon={<Share width={20} height={20} />}
+          onClick={shareAsText}
+          ariaLabel="Compartir tareas completadas"
+        />
+        <ShareButton
+          variant="capsule"
+          icon={<Instagram width={20} height={20} />}
+          onClick={shareAsImage}
+          ariaLabel="Compartir en Instagram"
+        />
       </div>
 
       <div className={styles.hiddenWrapper}>

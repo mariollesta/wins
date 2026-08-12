@@ -28,9 +28,8 @@ function App() {
             onToggle={toggleCompleted}
             onRemove={removeTask}
           />
-
-          <ShareSection tasks={tasks} />
         </div>
+        <ShareSection tasks={tasks} />
       </div>
     </>
   )

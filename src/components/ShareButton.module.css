@@ -11,12 +11,18 @@
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .button:hover {
   background: var(--color-bg);
   border-color: var(--color-text-muted);
+  color: var(--color-primary);
+  transform: translateX(-4px);
 }
 
 .iconButton {
@@ -31,10 +37,28 @@
   background: var(--color-surface);
   color: var(--color-text);
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .iconButton:hover {
   background: var(--color-bg);
   border-color: var(--color-text-muted);
+  color: var(--color-primary);
+  transform: translateX(-4px);
+}
+
+.iconButton.capsule {
+  background: transparent;
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.iconButton.capsule:hover {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-primary);
 }

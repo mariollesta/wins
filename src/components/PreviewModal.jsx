@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import styles from './PreviewModal.module.css'
 import ShareCard from './ShareCard'
 
@@ -73,7 +73,9 @@ function PreviewModal({ tasks, shareText, onClose }) {
           {tab === 'text' ? (
             <pre className={styles.textPreview}>{shareText}</pre>
           ) : (
-            <ShareCard tasks={tasks} />
+            <div className={styles.cardScaler}>
+              <ShareCard tasks={tasks} />
+            </div>
           )}
         </div>
       </div>

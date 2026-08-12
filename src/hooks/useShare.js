@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { toPng } from 'html-to-image'
+import { formatToday } from '../utils/date'
 
 function useShare(tasks) {
   const shareCardRef = useRef()
@@ -15,8 +16,11 @@ function useShare(tasks) {
   }
 
   function getShareText() {
+    const today = formatToday()
+
     return (
-      'Mis Wins:\n\n' +
+      `${today}\n` +
+      'Mis Wins\n\n' +
       completedTasks.map((t) => `- ${t.description}`).join('\n')
     )
   }
@@ -28,7 +32,7 @@ function useShare(tasks) {
     const texto = getShareText()
 
     if (navigator.share) {
-      navigator.share({ title: 'Mis Wins', text: texto })
+      navigator.share({ text: texto })
     } else {
       navigator.clipboard.writeText(texto)
       alert('Copiado al portapapeles (tu navegador no soporta compartir directo)')

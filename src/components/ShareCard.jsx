@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import styles from './ShareCard.module.css'
+import { Check } from '../icons/Check'
 
 const ShareCard = forwardRef(function ShareCard({ tasks }, ref) {
   const today = new Date().toLocaleDateString('es-ES', {
@@ -15,7 +16,9 @@ const ShareCard = forwardRef(function ShareCard({ tasks }, ref) {
       <ul className={styles.list}>
         {tasks.map((task) => (
           <li key={task.id} className={styles.item}>
-            <span className={styles.check}>✓</span>
+            <span className={styles.check}>
+              <Check width={16} height={16} />
+            </span>
             {task.description}
           </li>
         ))}
