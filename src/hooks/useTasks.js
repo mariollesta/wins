@@ -9,9 +9,12 @@ function useTasks() {
     const lastDay = localStorage.getItem('lastDay')
 
     if (lastDay !== today) {
-      initialTasks = initialTasks.map((task) =>
-        task.day === 'mañana' ? { ...task, day: 'hoy' } : task
-      )
+      initialTasks = initialTasks
+      // remove today's completed tasks
+      .filter((task) => !(task.day === 'hoy' && task.completed))
+      // tomorrow's tasks become today's tasks
+      .map((task) => (task.day === 'mañana' ? { ...task, day: 'hoy' } : task))
+
       localStorage.setItem('lastDay', today)
       localStorage.setItem('tasks', JSON.stringify(initialTasks))
     }
