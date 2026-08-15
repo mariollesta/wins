@@ -39,9 +39,9 @@
   --color-surface: rgba(0, 0, 0, 0.03);
   --color-surface-strong: rgba(0, 0, 0, 0.05);
   --color-surface-hover: rgba(0, 0, 0, 0.045);
-  --color-primary: #65a30d;
-  --color-primary-hover: #4d7c0f;
-  --color-accent: #16a34a;
+  --color-primary: #a3e635;
+  --color-primary-hover: #84cc16;
+  --color-accent: #22c55e;
   --color-text: #18181b;
   --color-text-muted: #6b6b7d;
   --color-border: rgba(0, 0, 0, 0.08);

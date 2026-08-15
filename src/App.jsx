@@ -3,6 +3,7 @@ import Header from './components/Header'
 import TaskForm from './components/TaskForm'
 import TaskList from './components/TaskList'
 import ShareSection from './components/ShareSection'
+import Footer from './components/Footer'
 import useTasks from './hooks/useTasks'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
 
         <ShareSection tasks={tasks} />
       </div>
+      <Footer />
     </>
   )
 }
