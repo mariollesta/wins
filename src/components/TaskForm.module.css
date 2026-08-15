@@ -1,144 +1,171 @@
 .wrapper {
   display: flex;
-  align-items: stretch;
-  gap: 0.6rem;
-  margin-bottom: 2.25rem;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color 0.25s ease;
+}
+
+.wrapper:has(.input:focus) {
+  border-bottom-color: var(--color-primary);
 }
 
 .form {
   flex: 1;
   min-width: 0;
   display: flex;
-  gap: 0.6rem;
-  padding: 0.5rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form:focus-within {
-  border-color: rgba(163, 230, 53, 0.5);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.03),
-    0 0 0 4px rgba(163, 230, 53, 0.14);
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .input {
   flex: 1;
   min-width: 0;
-  padding: 0.7rem 0.85rem;
+  padding: 0.5rem 0;
   border: none;
-  border-radius: var(--radius-sm);
   background: transparent;
   color: var(--color-text);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-family: inherit;
   outline: none;
-  transition: background 0.15s ease;
 }
 
 .input::placeholder {
   color: var(--color-text-muted);
+  transition: opacity 0.2s ease;
 }
 
-.input:hover {
+.input:focus::placeholder {
+  opacity: 0.5;
+}
+
+.dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdownTrigger:hover {
+  color: var(--color-text);
+}
+
+.dropdownList {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 120px;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 20;
+}
+
+.dropdownOption,
+.dropdownOptionActive {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.dropdownOption:hover {
   background: var(--color-surface-hover);
 }
 
-.input:focus {
-  background: var(--color-surface-strong);
-}
-
-.select {
-  padding: 0.7rem 0.85rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-family: inherit;
-  font-weight: 500;
-  background: var(--color-surface-strong);
-  color: var(--color-text);
-  outline: none;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
-    linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%);
-  background-position:
-    calc(100% - 14px) 50%,
-    calc(100% - 9px) 50%;
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  padding-right: 1.9rem;
-}
-
-.select:hover {
-  border-color: var(--color-border-strong);
-  background-color: var(--color-surface-hover);
-}
-
-.select:focus {
-  border-color: var(--color-primary);
-}
-
-.select option {
-  background: #15151f;
-  color: var(--color-text);
+.dropdownOptionActive {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .button {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0 1.25rem;
+  gap: 0.4rem;
+  width: auto;
+  height: 32px;
+  padding: 0;
   border: none;
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: white;
-  font-size: 0.9rem;
-  font-weight: 600;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
   font-family: inherit;
-  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: background 0.15s ease;
   white-space: nowrap;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
 .button:hover {
-  background: var(--color-primary-hover);
+  transform: translateX(2px);
+  color: var(--color-primary);
 }
 
 .button:active {
-  background: var(--color-primary-hover);
+  transform: scale(0.96);
+}
+
+.icon {
+  color: var(--color-primary);
+}
+
+.buttonText {
+  display: inline;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transition: transform 0.2s ease;
+  transform: rotate(180deg);
 }
 
 @media (max-width: 480px) {
   .wrapper {
-    flex-wrap: nowrap;
+    gap: 0.5rem;
+    padding-bottom: 0.65rem;
   }
 
   .form {
-    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
-  .input {
-    flex: 1 1 100%;
-  }
-
-  .select {
-    flex: 1;
+  .dropdownTrigger {
+    font-size: 0.8rem;
   }
 
   .buttonText {
     display: none;
-  }
-
-  .button {
-    padding: 0 0.9rem;
   }
 }

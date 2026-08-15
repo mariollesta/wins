@@ -12,9 +12,9 @@ function App() {
     <>
       <Header />
       <div className={styles.container}>
-        <div className={styles.card}>
-          <TaskForm onAdd={addTask} />
+        <TaskForm onAdd={addTask} />
 
+        <div className={styles.lists}>
           <TaskList
             title="Hoy"
             tasks={todayTasks}
@@ -29,6 +29,7 @@ function App() {
             onRemove={removeTask}
           />
         </div>
+
         <ShareSection tasks={tasks} />
       </div>
     </>

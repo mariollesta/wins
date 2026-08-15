@@ -1,4 +1,5 @@
 import styles from './TaskItem.module.css'
+import { Trash } from '../icons/Trash'
 
 function TaskItem({ task, onToggle, onRemove }) {
   return (
@@ -16,8 +17,13 @@ function TaskItem({ task, onToggle, onRemove }) {
       >
         {task.description}
       </span>
-      <button className={styles.removeButton} onClick={() => onRemove(task.id)}>
-        Eliminar
+      <button
+        className={styles.removeButton}
+        onClick={() => onRemove(task.id)}
+        aria-label="Eliminar tarea"
+      >
+        <Trash width={16} height={16} />
+        <span className={styles.removeButtonText}>Eliminar</span>
       </button>
     </li>
   )
