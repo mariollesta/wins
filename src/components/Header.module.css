@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 480px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1.5rem 0;
+  padding: 1.5rem 2rem 0;
 }
 
 .logo {
@@ -13,6 +13,12 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--color-primary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .themeToggle {
@@ -46,5 +52,18 @@
   to {
     opacity: 1;
     transform: rotate(0deg) scale(1);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .coffeeText {
+    display: none;
+  }
+
+  .coffeeButton {
+    padding: 0;
+    width: 36px;
+    justify-content: center;
   }
 }

@@ -4,6 +4,7 @@ import TaskForm from './components/TaskForm'
 import TaskList from './components/TaskList'
 import ShareSection from './components/ShareSection'
 import Footer from './components/Footer'
+import SupportWins from './components/SupportWins'
 import useTasks from './hooks/useTasks'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <ShareSection tasks={tasks} />
       </div>
       <Footer />
+      <SupportWins />
     </>
   )
 }
