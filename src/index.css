@@ -32,6 +32,30 @@
   --font-display: 'Pacifico', cursive;
 }
 
+[data-theme="light"] {
+  --color-bg: #f7f7f5;
+  --color-surface: rgba(0, 0, 0, 0.03);
+  --color-surface-strong: rgba(0, 0, 0, 0.05);
+  --color-surface-hover: rgba(0, 0, 0, 0.045);
+  --color-primary: #65a30d;
+  --color-primary-hover: #4d7c0f;
+  --color-accent: #16a34a;
+  --color-text: #18181b;
+  --color-text-muted: #6b6b7d;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.14);
+  --color-success: #16a34a;
+
+  --gradient-primary: linear-gradient(135deg, #65a30d 0%, #4d7c0f 50%, #3f6212 100%);
+  --gradient-primary-soft: linear-gradient(135deg, rgba(101, 163, 13, 0.85) 0%, rgba(77, 124, 15, 0.85) 100%);
+  --gradient-text: linear-gradient(135deg, #65a30d 0%, #4d7c0f 50%, #3f6212 100%);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 60px rgba(101, 163, 13, 0.15);
+  --shadow-glow-strong: 0 8px 32px rgba(101, 163, 13, 0.22);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -64,8 +88,8 @@ body::after {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--color-text) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 6%, transparent) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
@@ -80,5 +104,5 @@ body::after {
 
 ::selection {
   background: rgba(163, 230, 53, 0.4);
-  color: #0a0a14;
+  color: var(--color-bg);
 }

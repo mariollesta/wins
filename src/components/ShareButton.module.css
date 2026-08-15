@@ -54,7 +54,7 @@
 .iconButton.capsule {
   background: transparent;
   border-color: transparent;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text);
 }
 
 .iconButton.capsule:hover {

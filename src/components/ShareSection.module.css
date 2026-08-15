@@ -18,16 +18,15 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.5rem;
-  background: rgba(10, 10, 20, 0.88);
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
   border-radius: 999px;
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.55),
-    0 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-md);
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
   transform: translateY(-50%);
   transform-origin: center;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .row:hover {

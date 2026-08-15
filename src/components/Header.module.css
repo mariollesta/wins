@@ -15,3 +15,36 @@
   color: var(--color-text);
 }
 
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.themeToggle:hover {
+  color: var(--color-primary);
+  background: var(--color-surface-hover);
+}
+
+.themeIcon {
+  animation: iconIn 0.25s ease;
+}
+
+@keyframes iconIn {
+  from {
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
