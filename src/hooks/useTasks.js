@@ -10,8 +10,8 @@ function useTasks() {
 
     if (lastDay !== today) {
       initialTasks = initialTasks
-      // remove today's completed tasks
-      .filter((task) => !(task.day === 'hoy' && task.completed))
+      // remove today's tasks
+      .filter((task) => task.day !== 'hoy')
       // tomorrow's tasks become today's tasks
       .map((task) => (task.day === 'mañana' ? { ...task, day: 'hoy' } : task))
 
