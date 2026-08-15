@@ -55,11 +55,6 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(163, 230, 53, 0.22) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 85% 10%, rgba(74, 222, 128, 0.16) 0%, transparent 60%),
-    radial-gradient(ellipse 70% 50% at 75% 95%, rgba(132, 204, 22, 0.14) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 10% 90%, rgba(190, 242, 100, 0.10) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
