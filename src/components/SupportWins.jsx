@@ -10,7 +10,7 @@ function SupportWins() {
       target="_blank"
       rel="noreferrer"
       className={styles.widget}
-      aria-label="Apoya a Wins invitándome un café"
+      aria-label="Apoya a Wins"
     >
       <HandLoveYou width={20} height={20} />
       <span className={styles.text}>Apoya a Wins</span>

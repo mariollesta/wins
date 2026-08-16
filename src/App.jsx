@@ -1,18 +1,15 @@
 import styles from './App.module.css'
-import Header from './components/Header'
+import BaseLayout from './layouts/BaseLayout'
 import TaskForm from './components/TaskForm'
 import TaskList from './components/TaskList'
 import ShareSection from './components/ShareSection'
-import Footer from './components/Footer'
-import SupportWins from './components/SupportWins'
 import useTasks from './hooks/useTasks'
 
 function App() {
   const { tasks, todayTasks, tomorrowTasks, addTask, toggleCompleted, removeTask } = useTasks()
 
   return (
-    <>
-      <Header />
+    <BaseLayout>
       <div className={styles.container}>
         <TaskForm onAdd={addTask} />
 
@@ -34,9 +31,7 @@ function App() {
 
         <ShareSection tasks={tasks} />
       </div>
-      <Footer />
-      <SupportWins />
-    </>
+    </BaseLayout>
   )
 }
 

@@ -2,7 +2,7 @@ import styles from './Header.module.css'
 import { useTheme } from '../context/ThemeContext.jsx'
 import { Sun } from '../icons/Sun'
 import { Moon } from '../icons/Moon'
-import { Coffee } from '../icons/HandLoveYou.jsx'
+
 
 function Header() {
   const { theme, toggleTheme } = useTheme()
