@@ -1,7 +1,7 @@
 .card {
   width: 360px;
   padding: 2rem;
-  background: var(--color-surface);
+  background: var(--color-bg);
   border-radius: var(--radius-lg);
   font-family: var(--font-sans);
 }
@@ -16,6 +16,7 @@
 
 .title {
   font-family: var(--font-display);
+  color: var(--color-primary);
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0.4rem 0 1.5rem;
