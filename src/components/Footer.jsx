@@ -18,8 +18,8 @@ const COLUMNS = [
   {
     title: 'Legal',
     links: [
-      { label: 'Términos', href: '#' },
-      { label: 'Privacidad', href: '#' },
+      { label: 'Términos', href: '/terminos-y-condiciones', internal: true },
+      { label: 'Privacidad', href: '/politica-de-privacidad', internal: true },
     ],
   },
 ]
