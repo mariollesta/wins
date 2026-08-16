@@ -1,7 +1,7 @@
 import styles from './TermsAndConditions.module.css'
 import BaseLayout from '../layouts/BaseLayout'
 
-function TermsAndConditions() {
+function TermsAndConditionsPage() {
   return (
     <BaseLayout>
       <article className={styles.article}>
@@ -74,4 +74,4 @@ function TermsAndConditions() {
   )
 }
 
-export default TermsAndConditions
+export default TermsAndConditionsPage
