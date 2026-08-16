@@ -1,4 +1,5 @@
 import styles from './Footer.module.css'
+import SupportWins from './SupportWins'
 
 const COLUMNS = [
   {
@@ -23,7 +24,7 @@ function Footer() {
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brand}>
-          <span className={styles.logo}>Wins</span>
+            <span className={styles.logo}>Wins</span>
             <p className={styles.slogan}>Planea tu día y comparte tus logros</p>
           </div>
 
@@ -45,7 +46,10 @@ function Footer() {
           </nav>
         </div>
 
-        <p className={styles.copyright}>© 2026 Wins. Hecho por mariollesta</p>
+        <div className={styles.bottom}>
+          <p className={styles.copyright}>© 2026 Wins. Hecho por mariollesta</p>
+          <SupportWins />
+        </div>
       </div>
     </footer>
   )
