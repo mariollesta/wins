@@ -1,19 +1,25 @@
+import { Link } from './Link'
 import styles from './Footer.module.css'
 import SupportWins from './SupportWins'
 
 const COLUMNS = [
   {
-    title: 'Producto',
+    title: 'Público',
     links: [
-      { label: 'Cómo funciona', href: '#' },
       { label: 'Open Source', href: 'https://github.com/mariollesta/wins' },
+    ],
+  },
+  {
+    title: 'Recursos',
+    links: [
+      { label: 'Cómo funciona', href: '/como-funciona', internal: true },
     ],
   },
   {
     title: 'Legal',
     links: [
-      { label: 'Privacidad', href: '#' },
       { label: 'Términos', href: '#' },
+      { label: 'Privacidad', href: '#' },
     ],
   },
 ]
@@ -33,13 +39,21 @@ function Footer() {
               <div key={col.title} className={styles.column}>
                 <h4 className={styles.columnTitle}>{col.title}</h4>
                 <ul className={styles.list}>
-                  {col.links.map((link) => (
-                    <li key={link.label}>
-                      <a className={styles.link} href={link.href}>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
+                  {col.links.map((link) =>
+                    link.internal ? (
+                      <li key={link.label}>
+                        <Link className={styles.link} href={link.href}>
+                          {link.label}
+                        </Link>
+                      </li>
+                    ) : (
+                      <li key={link.label}>
+                        <a className={styles.link} href={link.href} target="_blank" rel="noreferrer">
+                          {link.label}
+                        </a>
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
             ))}
