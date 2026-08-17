@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/public/wins-logo-large.webp" alt="Wins banner" width="100%" />
+  <img src="/public/banner.webp" alt="Wins banner" width="100%" />
 </p>
 
 <h1 align="center">
