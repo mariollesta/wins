@@ -10,10 +10,6 @@
   position: relative;
 }
 
-.item:last-child {
-  border-bottom: none;
-}
-
 .item::before {
   content: "";
   position: absolute;
