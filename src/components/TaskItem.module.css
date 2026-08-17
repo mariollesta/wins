@@ -16,8 +16,8 @@
   left: -1rem;
   top: 50%;
   transform: translateY(-50%) scaleY(0);
-  width: 2px;
-  height: 80%;
+  width: 1px;
+  height: 50%;
   border-radius: 0 4px 4px 0;
   background: var(--gradient-primary);
   transition: transform 0.2s ease;

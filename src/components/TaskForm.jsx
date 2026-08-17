@@ -24,7 +24,9 @@ function TaskForm({ onAdd }) {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault()
+
     if (description.trim() === '') return
 
     onAdd({
@@ -40,7 +42,7 @@ function TaskForm({ onAdd }) {
   const selectedLabel = DAY_OPTIONS.find((opt) => opt.value === day)?.label
 
   return (
-    <div className={styles.wrapper}>
+    <form className={styles.wrapper} onSubmit={handleSubmit}>
       <div className={styles.form}>
         <div className={styles.dropdown} ref={dropdownRef}>
           <button
@@ -89,11 +91,11 @@ function TaskForm({ onAdd }) {
         />
       </div>
 
-      <button className={styles.button} onClick={handleSubmit} aria-label="Añadir tarea">
+      <button type="submit" className={styles.button} aria-label="Añadir tarea">
         <Plus width={18} height={18} className={styles.icon} />
         <span className={styles.buttonText}>Añadir tarea</span>
       </button>
-    </div>
+    </form>
   )
 }
 
