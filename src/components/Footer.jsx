@@ -30,7 +30,9 @@ function Footer() {
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <span className={styles.logo}>Wins</span>
+            <Link href="/" className={styles.logo}>
+              Wins
+            </Link>
             <p className={styles.slogan}>Planea tu día y comparte tus logros</p>
           </div>
 

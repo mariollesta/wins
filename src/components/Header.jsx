@@ -1,5 +1,6 @@
 import styles from './Header.module.css'
 import { useTheme } from '../context/ThemeContext.jsx'
+import { Link } from './Link'
 import { Sun } from '../icons/Sun'
 import { Moon } from '../icons/Moon'
 
@@ -10,7 +11,9 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <span className={styles.logo}>Wins</span>
+      <Link href="/" className={styles.logo}>
+        Wins
+      </Link>
       <div className={styles.actions}>
         <button
           className={styles.themeToggle}
