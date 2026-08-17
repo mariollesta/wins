@@ -5,8 +5,9 @@ import ShareCard from './ShareCard'
 import PreviewModal from './PreviewModal'
 import useShare from '../hooks/useShare'
 import { Eye } from '../icons/Eye'
+import { ClipboardText } from '../icons/ClipboardText'
 import { Share } from '../icons/Share'
-import { Instagram } from '../icons/Instagram'
+
 
 function ShareSection({ tasks }) {
   const [showPreview, setShowPreview] = useState(false)
@@ -21,19 +22,23 @@ function ShareSection({ tasks }) {
           variant="capsule"
           icon={<Eye width={18} height={18} />}
           onClick={() => setShowPreview(true)}
+          ariaLabel="Vista previa"
+          label="Vista previa"
         />
 
         <ShareButton
           variant="capsule"
-          icon={<Share width={20} height={20} />}
+          icon={<ClipboardText width={20} height={20} />}
           onClick={shareAsText}
-          ariaLabel="Compartir tareas completadas"
+          ariaLabel="Compartir tareas completadas como texto"
+          label="Compartir como texto"
         />
         <ShareButton
           variant="capsule"
-          icon={<Instagram width={20} height={20} />}
+          icon={<Share width={20} height={20} />}
           onClick={shareAsImage}
-          ariaLabel="Compartir en Instagram"
+          ariaLabel="Compartir tareas completadas como imagen"
+          label="Compartir como imagen"
         />
       </div>
 
