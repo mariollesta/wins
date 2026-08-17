@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/Home'
 import HowItWorks from './pages/HowItWorks'
-import TermsAndConditionsPage from './pages/TermsAnsConditions'
+import TermsAndConditionsPage from './pages/TermsAndConditions'
 import PrivacyPage from './pages/Privacy'
 
 function App() {
