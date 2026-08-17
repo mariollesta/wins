@@ -1,18 +1,53 @@
-# React + Vite
+<p align="center">
+  <img src="/public/wins-logo-large.webp" alt="Wins banner" width="100%" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+***Plan your day, share your wins***
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Wins
 
-## React Compiler
+Wins is a minimalist daily to-do list. No accounts, no cloud, no complications — your tasks live in your own browser, and every day you start fresh.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Features
+ 
+- 📝 **Today's tasks** — you only see what matters right now, no endless backlog
+- 🌙 **Plan for tomorrow** — jot down tasks for the next day; they automatically kick in when the day changes
+- ✅ **Track your wins** — complete tasks and celebrate your progress
+- 📤 **Share your progress** — as plain text or as an image ready for your socials
+- 🌗 **Light / dark mode** — pick whichever theme you like
+- 💾 **100% local** — everything is saved in your browser, no servers, no sign-up
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with **JavaScript**, **React**, **Vite** y **CSS Modules**. Sin backend — todo corre en el cliente.
+
+---
+
+## Running it locally
+
+```bash
+git clone https://github.com/mariollesta/wins.git
+cd wins
+pnpm install
+pnpm dev
+```
+
+---
+
+## License
+
+This project is open source under the license [MIT](./LICENSE).
+
+---
+
+## Support the project
+
+If you like Wins, you can support it right from the app.
+
+---
+
+Made with care by [mariollesta](https://github.com/mariollesta).
