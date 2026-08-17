@@ -24,7 +24,7 @@
 
 ## Stack
 
-Built with **JavaScript**, **React**, **Vite** y **CSS Modules**. Sin backend — todo corre en el cliente.
+Built with **JavaScript**, **React**, **Vite** y **CSS Modules**. No backend — everything runs client-side.
 
 
 ## Running it locally
