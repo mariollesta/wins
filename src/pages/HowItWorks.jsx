@@ -1,6 +1,7 @@
 import styles from './HowItWorks.module.css'
 import BaseLayout from '../layouts/BaseLayout'
 
+
 function HowItWorksPage() {
   return (
     <BaseLayout>

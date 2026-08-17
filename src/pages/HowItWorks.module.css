@@ -1,12 +1,12 @@
 .article {
-  max-width: 640px;
+  max-width: 680px;
   width: 100%;
   margin: 0 auto;
   padding: 4rem 1.5rem 6rem;
 }
 
 .title {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 2.5rem;
@@ -17,22 +17,16 @@
   display: inline-block;
 }
 
-.title::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 3px;
-  border-radius: 999px;
-  margin-top: 0.75rem;
-  background: var(--color-primary);
-}
-
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  font-style: italic;
   line-height: 1.55;
   margin: 0 0 2.5rem;
   color: var(--color-text);
   font-weight: 500;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed var(--color-border);
 }
 
 .leadPhrase {
