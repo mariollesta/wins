@@ -45,7 +45,10 @@ function useShare(tasks) {
 
     await new Promise((resolve) => requestAnimationFrame(resolve))
 
-    const dataUrl = await toPng(shareCardRef.current, { pixelRatio: 2 })
+    const dataUrl = await toPng(shareCardRef.current, {
+      pixelRatio: 2,
+      backgroundColor: 'transparent',
+    })
     const blob = await (await fetch(dataUrl)).blob()
     const file = new File([blob], 'wins.png', { type: 'image/png' })
 

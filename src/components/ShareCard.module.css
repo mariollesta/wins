@@ -1,9 +1,11 @@
 .card {
   width: 360px;
   padding: 2rem;
-  background: var(--color-bg);
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   font-family: var(--font-sans);
+  overflow: hidden;
+  color: var(--color-text);
 }
 
 .date {
@@ -37,6 +39,7 @@
   align-items: flex-start;
   gap: 0.6rem;
   font-size: 0.95rem;
+  color: var(--color-text);
 }
 
 .check {
@@ -46,7 +49,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  color: var(--color-primary-hover);
 }
 
 .footer {
